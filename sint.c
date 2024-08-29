@@ -33,16 +33,17 @@ void E_linha(){
         case '+':
             consome('+');
             T();
-            a = pop();
             b = pop();
+            a = pop();
             push(a + b);
             E_linha();
             break;
         case '-':
             consome('-');
             T();
-            a = pop();
             b = pop();
+            a = pop();
+            push(a - b);
             E_linha();
             break;
     }
@@ -58,15 +59,17 @@ void T_linha(){
         case '*':
             consome('*');
             F();
-            a = pop();
             b = pop();
+            a = pop();
+            push(a * b);
             T_linha();
             break;
         case '/':
             consome('/');
             F();
-            a = pop();
             b = pop();
+            a = pop();
+            push(a / b);
             T_linha();
             break;
     }
@@ -81,6 +84,7 @@ void F(){
             break;
         case NUM:
             consome(NUM);
+            push(tokenval);
             break;
         default:
             erro_sint();
@@ -90,10 +94,12 @@ void F(){
 int main(){
     token = analex();
     E();
+
     if(token == ';')
-        printf("NÃO TEM ERROS SINTATICOS!!");
+        printf("NAO TEM ERROS SINTATICOS!!");
     else
         erro_sint();
+    printf("\n\nResultado = %d", pop());
     return 0;
 }
 
