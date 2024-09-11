@@ -8,7 +8,6 @@ char aux;
 int x = 0;
 
 void consome(int t);
-void consome();
 void E();
 void E_linha();
 void T();
