@@ -4,17 +4,25 @@
 
 int token;
 
+void consome();
 void E();
 void E_linha();
 void T();
 void T_linha();
 void F();
+void erro_sint();
 
+int main(){
+    token = analex();
+    E();
 
-void erro_sint(){
-    printf("ERRO SINTATICO na Linha %d!!", linha_atual);
-    exit(1);
-}
+    if(token == ';')
+        printf("NAO TEM ERROS SINTATICOS!!");
+    else
+        erro_sint();
+    printf("\n\nResultado = %d", pop());
+    return 0;
+} 
 
 void consome(int t){
     if (token == t)
@@ -91,14 +99,7 @@ void F(){
     }
 }
 
-int main(){
-    token = analex();
-    E();
-
-    if(token == ';')
-        printf("NAO TEM ERROS SINTATICOS!!");
-    else
-        erro_sint();
-    printf("\n\nResultado = %d", pop());
-    return 0;
+void erro_sint(){
+    printf("ERRO SINTATICO na Linha %d!!", linha_atual);
+    exit(1);
 }
