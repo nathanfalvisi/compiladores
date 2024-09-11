@@ -26,10 +26,6 @@ int main(){
         printf("RESULTADO DA EXPRESSAO: %d\n", pop());
     } else
         erro_sint();
-    if(token == ';')
-        printf("NAO TEM ERROS SINTATICOS!!");
-    else
-        erro_sint();
 } 
 
 void consome(int t){
