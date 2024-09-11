@@ -1,5 +1,6 @@
 #include "analex.h"
 #include "pilha.h"
+#include <string.h>
 #define MAX 1000
 
 int token;
@@ -49,9 +50,6 @@ void E_linha(){
             push(a + b);
             aux = '+';
             strcpy(&posfixa[x], &aux);
-            x++;
-            posfixa[x] = ' ';
-            x++;
             E_linha();
             break;
         case '-':
