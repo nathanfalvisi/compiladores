@@ -48,8 +48,6 @@ void E_linha(){
             b = pop();
             a = pop();
             push(a + b);
-            aux = '+';
-            strcpy(&posfixa[x], &aux);
             E_linha();
             break;
         case '-':
