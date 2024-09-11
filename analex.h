@@ -4,6 +4,7 @@
 #define NUM 256
 
 int tokenval;
+int linha_atual = 1;
 
 int analex(){
     char ch;
@@ -42,9 +43,12 @@ int analex(){
     return NUM;
     }
 
-    if (!isspace(ch)){
-        printf("Erro Lexico: Caracter Inserido Invalido! '%c'", ch);
+    if(!isspace(ch)){
+        printf("Erro Lexico na Linha: %d Caracter Inserido Invalido! '%c'",linha_atual, ch);
         exit(1);
+    }
+    if(ch == '\n'){
+        linha_atual++;
     }
 
     return analex();

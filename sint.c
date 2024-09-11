@@ -12,7 +12,7 @@ void F();
 
 
 void erro_sint(){
-    printf("ERRO SINTATICO!!");
+    printf("ERRO SINTATICO na Linha %d!!", linha_atual);
     exit(1);
 }
 
@@ -102,16 +102,3 @@ int main(){
     printf("\n\nResultado = %d", pop());
     return 0;
 }
-
-/*int main(){
-    printf("Digite uma sequencia de caracteres:\n");
-    int token;
-    while ((token = analex()) != EOF) {
-        if (token == NUM)
-            printf("Numero lido: %d\n", tokenval);
-        else
-            printf("Operador ou simbolo lido: '%c'\n", token);
-    }
- }*/
-
-
