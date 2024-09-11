@@ -7,8 +7,8 @@ char posfixa[MAX];
 char aux;
 int x = 0;
 
-
 void consome(int t);
+void consome();
 void E();
 void E_linha();
 void T();
@@ -25,6 +25,10 @@ int main(){
         printf("NOTACAO POSFIXA: %s\n", posfixa);
         printf("RESULTADO DA EXPRESSAO: %d\n", pop());
     } else
+        erro_sint();
+    if(token == ';')
+        printf("NAO TEM ERROS SINTATICOS!!");
+    else
         erro_sint();
 } 
 

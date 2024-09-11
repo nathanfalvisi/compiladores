@@ -43,7 +43,11 @@ int analex(){
     }
 
     if(!isspace(ch)){
+<<<<<<< HEAD
         printf("ERRO LEXICO NA LINHA: %d",linha_atual);
+=======
+        printf("Erro Lexico na Linha: %d Caracter Inserido Invalido! '%c'",linha_atual, ch);
+>>>>>>> b0e84cf9a9e00161a98f32e052494dd8470d9a02
         exit(1);
     }
     if(ch == '\n'){
