@@ -3,18 +3,30 @@
 #define MAX 1000
 
 int token;
+char posfixa[MAX];
+char aux;
+int x = 0;
 
+
+void consome(int t);
 void E();
 void E_linha();
 void T();
 void T_linha();
 void F();
+void erro_sint();
 
+int main(){
+    token = analex();
+    E();
 
-void erro_sint(){
-    printf("ERRO SINTATICO!!");
-    exit(1);
-}
+    if(token == ';'){
+        printf("EXPRESSAO CORRETA\n");
+        printf("NOTACAO POSFIXA: %s\n", posfixa);
+        printf("RESULTADO DA EXPRESSAO: %d\n", pop());
+    } else
+        erro_sint();
+} 
 
 void consome(int t){
     if (token == t)
@@ -36,6 +48,11 @@ void E_linha(){
             b = pop();
             a = pop();
             push(a + b);
+            aux = '+';
+            strcpy(&posfixa[x], &aux);
+            x++;
+            posfixa[x] = ' ';
+            x++;
             E_linha();
             break;
         case '-':
@@ -91,27 +108,7 @@ void F(){
     }
 }
 
-int main(){
-    token = analex();
-    E();
-
-    if(token == ';')
-        printf("NAO TEM ERROS SINTATICOS!!");
-    else
-        erro_sint();
-    printf("\n\nResultado = %d", pop());
-    return 0;
+void erro_sint(){
+    printf("ERRO SINTATICO NA LINHA: %d", linha_atual);
+    exit(1);
 }
-
-/*int main(){
-    printf("Digite uma sequencia de caracteres:\n");
-    int token;
-    while ((token = analex()) != EOF) {
-        if (token == NUM)
-            printf("Numero lido: %d\n", tokenval);
-        else
-            printf("Operador ou simbolo lido: '%c'\n", token);
-    }
- }*/
-
-
