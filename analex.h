@@ -43,7 +43,7 @@ int analex(){
     }
 
     if(!isspace(ch)){
-        printf("ERRO LEXICO NA LINHA: %d",linha_atual);
+        printf("ERRO LEXICO NA LINHA %d",linha_atual);
         exit(1);
     }
     if(ch == '\n'){

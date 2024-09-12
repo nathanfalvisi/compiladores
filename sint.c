@@ -151,7 +151,7 @@ void F(){
 }
 
 void erro_sint(){
-    printf("ERRO SINTATICO NA LINHA: %d", linha_atual);
+    printf("ERRO SINTATICO NA LINHA %d", linha_atual);
     exit(1);
 }
 
